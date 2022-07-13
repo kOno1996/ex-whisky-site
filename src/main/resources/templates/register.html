@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Whisky Lab</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+  </head>
+  <body>
+  	<header>
+  		<h1 class="title">Whisky Lab</h1>
+  	</header>
+  	<p class="page-name">👑プロフィール設定</p>
+  	
+  	<form th:action="@{/user/register}" method="post">
+  		<p id="profile">ニックネーム</p>
+  		<input type="text" name="name">
+  		<p id="profile">メールアドレス</p>
+  		<input type="text" name="mail">
+  		<p id="profile">パスワード</p>
+  		<input type="password" name="password">
+  		<p id="profile">性別</p>
+  			<input type="radio" name="gender" th:value="男性" th:text="男性">
+  			<input type="radio" name="gender" th:value="女性" th:text="女性">
+  			<input type="radio" name="gender" th:value="不明" th:text="選択しない">
+  		<p id="profile">年代</p>
+  		<input type="text" name="name">
+  		<p id="profile">お住まいの地域</p>
+  		<input type="text" name="name"><p>
+  		<button>登録完了</button>
+  	</form>
+  	
+  </body>
+</html>
