@@ -1,0 +1,15 @@
+header {
+background-color: black;
+}
+
+.title{
+	height: 150px;
+	line-height: 150px;
+	text-align: center;
+	color: white;
+}
+
+.page-name{
+	text-align: center;
+	border-bottom: 5px solid brown;
+}
