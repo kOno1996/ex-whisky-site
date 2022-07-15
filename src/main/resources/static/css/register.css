@@ -13,3 +13,80 @@ background-color: black;
 	text-align: center;
 	border-bottom: 5px solid brown;
 }
+
+
+.profile{
+	position:relative;
+	left:700px;
+}
+
+.man{
+	position:relative;
+	left:700px;
+	
+}
+
+.man-text{
+	position:relative;
+	left:730px;
+	bottom:41px;
+}
+
+.woman{
+	position:relative;
+	left:700px;
+	bottom:50px;
+}
+
+.woman-text{
+	position:relative;
+	left:730px;
+	bottom:91px;
+}
+
+.unknown{
+	position:relative;
+	left:700px;
+	bottom:100px;
+}
+
+.unknown-text{
+	position:relative;
+	left:730px;
+	bottom:141px;
+}
+
+
+.age{
+	position:relative;
+	left:700px;
+	bottom:141px;
+}
+
+.age-select{
+	position:relative;
+	left:700px;
+	bottom:141px;
+	width:200px;
+	height: 35px;
+}
+
+.area{
+	position:relative;
+	left:700px;
+	bottom:141px;
+}
+
+.area-select{
+	position:relative;
+	left:700px;
+	bottom:141px;
+	width:200px;
+	height: 35px;
+}
+
+.button{
+	position:relative;
+	left:496px;
+	bottom:70px;
+}

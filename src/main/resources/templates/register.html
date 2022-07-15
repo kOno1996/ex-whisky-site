@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>Whisky Lab</title>
+    <title>プロフィール設定</title>
     <link rel="stylesheet" th:href="@{/css/register.css}">
   </head>
   <body>
@@ -11,22 +11,39 @@
   	</header>
   	<p class="page-name">👑プロフィール設定</p>
   	
-  	<form th:action="@{/user/register}" method="post">
-  		<p id="profile">ニックネーム</p>
-  		<input type="text" name="name">
-  		<p id="profile">メールアドレス</p>
-  		<input type="text" name="mail">
-  		<p id="profile">パスワード</p>
-  		<input type="password" name="password">
-  		<p id="profile">性別</p>
-  			<input type="radio" name="gender" th:value="男性" th:text="男性">
-  			<input type="radio" name="gender" th:value="女性" th:text="女性">
-  			<input type="radio" name="gender" th:value="不明" th:text="選択しない">
-  		<p id="profile">年代</p>  	
-  		<input type="text" name="name">
-  		<p id="profile">お住まいの地域</p>
-  		<input type="text" name="name"><p>
-  		<button>登録完了</button>
+  	<form th:action="@{/user/register}" method="post" th:object="${userForm}">
+  		<p class="profile">ニックネーム</p>
+  		<input type="text" name="name" class="profile" th:field="*{name}">
+  		<p class="profile">メールアドレス</p>
+  		<input type="text" name="mail" class="profile" th:field="*{mail}">
+  		<p class="profile">パスワード</p>
+  		<input type="password" name="password" class="profile" th:field="*{password}">
+  		<p class="profile">性別</p>
+  			<input type="radio" name="gender" th:value="男性" class="man" th:field="*{gender}">
+  			<p class="man-text">男性</p>	
+  			<input type="radio" name="gender" th:value="女性"  class="woman" th:field="*{gender}">
+  			<p class="woman-text">女性</p>	
+  			<input type="radio" name="gender" th:value="不明"  class="unknown" th:field="*{gender}">
+  			<p class="unknown-text">選択しない</p>	
+  		<p class="age">年代</p>  	
+  		<select class="age-select" th:field="*{age}">
+  			<option th:text="選択してください"></option>
+            <option th:value="20代前半" th:text="20代前半"></option>
+            <option th:value="20代後半" th:text="20代後半"></option>
+            <option th:value="30代前半" th:text="30代前半"></option>
+            <option th:value="30代後半" th:text="30代後半"></option>
+            <option th:value="40代前半" th:text="40代前半"></option>
+            <option th:value="40代後半" th:text="40代後半"></option>
+            <option th:value="50代前半" th:text="50代前半"></option>
+            <option th:value="50代後半" th:text="50代後半"></option>
+            <option th:value="60代～" th:text="60代～"></option>
+  		</select>
+  		<p class="area">お住まいの地域</p>
+  		<select class="area-select" th:field="*{area}">
+            <option th:text="選択してください"></option>
+            <option th:each="area: ${areas}" th:value="${area.value}" th:text="${area.value}"></option>
+  		</select>
+  		<button class="button">登録完了</button>
   	</form>
   	
   </body>
