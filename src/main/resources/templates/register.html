@@ -11,7 +11,7 @@
   	</header>
   	<p class="page-name">👑プロフィール設定</p>
   	
-  	<form th:action="@{/user/register}" method="post" th:object="${userForm}">
+  	<form th:action="@{/mypage/register}" method="post" th:object="${userForm}">
   		<p class="profile">ニックネーム</p>
   		<input type="text" name="name" class="profile" th:field="*{name}">
   		<p class="profile">メールアドレス</p>
@@ -27,7 +27,7 @@
   			<p class="unknown-text">選択しない</p>	
   		<p class="age">年代</p>  	
   		<select class="age-select" th:field="*{age}">
-  			<option th:text="選択してください"></option>
+  			<option th:value="不明" th:text="選択してください"></option>
             <option th:value="20代前半" th:text="20代前半"></option>
             <option th:value="20代後半" th:text="20代後半"></option>
             <option th:value="30代前半" th:text="30代前半"></option>
@@ -40,7 +40,7 @@
   		</select>
   		<p class="area">お住まいの地域</p>
   		<select class="area-select" th:field="*{area}">
-            <option th:text="選択してください"></option>
+            <option th:value="不明" th:text="選択してください"></option>
             <option th:each="area: ${areas}" th:value="${area.value}" th:text="${area.value}"></option>
   		</select>
   		<button class="button">登録完了</button>

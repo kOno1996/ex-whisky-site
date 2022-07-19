@@ -57,3 +57,12 @@ a{
 	color: #955629;
 	background-color: #E9DBCC;
 }
+
+.featured-ranking{
+	text-align: center;
+	width: 650px;
+	position:relative;
+	bottom:150px;
+	left:550px;
+	border-bottom: 5px solid brown;
+}

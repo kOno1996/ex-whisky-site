@@ -22,5 +22,9 @@
   	<a th:href="@{/mypage/profile}" class="register">無料会員登録</a><br>
   	<a href="#" class="login">ログイン</a>
   	
+  	<p class="featured-ranking">👑ウイスキー注目ランキング</p>
+  	<div th:each="whisky: ${whiskyList}">
+  		<div th:text="${whisky.name}"></div>
+  	</div>
   </body>
 </html>

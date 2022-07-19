@@ -3,13 +3,31 @@ package com.example.demo.controller;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.domain.User;
+import com.example.demo.form.UserForm;
+import com.example.demo.service.UserRegisterService;
 
 @Controller
 @RequestMapping("/mypage")
 public class UserRegisterController {
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private UserRegisterService userRegisterService;
+	@ModelAttribute
+	public UserForm setupUserForm() {
+		return new UserForm();
+	}
+	
 	@RequestMapping("/profile")
 	public String profile(Model model) {
 		Map<Integer, String> areas = new LinkedHashMap<Integer, String>();
@@ -35,7 +53,15 @@ public class UserRegisterController {
 	}
 	
 	@RequestMapping("/register")
-	public String register() {
+	public String register(UserForm userForm) {
+		User user = new User();
+		user.setName(userForm.getName());
+		user.setMail(userForm.getMail());
+		user.setPassword(passwordEncoder.encode(userForm.getPassword()));
+		user.setGender(userForm.getGender());
+		user.setAge(userForm.getAge());
+		user.setArea(userForm.getArea());
+		userRegisterService.userRegister(user);
 		return "start";
 	}
 	
