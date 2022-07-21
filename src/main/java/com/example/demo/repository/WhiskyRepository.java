@@ -17,8 +17,9 @@ public class WhiskyRepository {
 	
 	private static final RowMapper<Whisky> WHISKY_ROW_MAPPER = (rs, i)->{
 		Whisky whisky = new Whisky();
-		whisky.setNameAll(rs.getString("name_all"));
+		whisky.setId(rs.getInt("id"));
 		whisky.setName(rs.getString("name"));
+		whisky.setBrand(rs.getString("brand"));
 		whisky.setProductingArea(rs.getString("producting_area"));
 		whisky.setClassification(rs.getString("classification"));
 		whisky.setPrice(rs.getInt("price"));

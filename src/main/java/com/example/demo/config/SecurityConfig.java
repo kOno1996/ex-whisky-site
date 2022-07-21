@@ -16,7 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// セキュリティの対象外を設定
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/css/**", "addInterlocking.js");
+		web.ignoring().antMatchers("/css/**", "addInterlocking.js", "/img/**");
 	}
 	
 	@Override

@@ -1,8 +1,9 @@
 package com.example.demo.domain;
 
 public class Whisky {
-	private String nameAll;
+	private Integer id;
 	private String name;
+	private String brand;
 	private String productingArea;
 	private String classification;
 	private Integer price;
@@ -11,17 +12,25 @@ public class Whisky {
 	private Integer maturityYears;
 	private Integer capacity;
 	
-	public String getNameAll() {
-		return nameAll;
+	public Integer getId() {
+		return id;
 	}
-	public void setNameAll(String nameAll) {
-		this.nameAll = nameAll;
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getBrand() {
+		return brand;
+	}
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 	public String getProductingArea() {
 		return productingArea;

@@ -23,8 +23,21 @@
   	<a href="#" class="login">ログイン</a>
   	
   	<p class="featured-ranking">👑ウイスキー注目ランキング</p>
-  	<div th:each="whisky: ${whiskyList}">
-  		<div th:text="${whisky.name}"></div>
-  	</div>
+  	
+  	<table  style="margin-left:700px;">
+  		<div th:each="whisky,status: ${whiskyList}">
+  			<div th:if="${status.index % 3 == 0}"><tr></div>
+  			<th>
+  				<span th:text="${whisky.name}"></span>
+  				<img
+                      th:src="@{/img/}  + ${whisky.id} + .jpg"
+                      class="img-responsive img-rounded item-img-center"
+                      width="200"
+                      height="600">
+                    
+  			</th>
+  			<div th:if="${status.index % 3 == 2}"></tr></div>
+  		</div>
+  	</table>
   </body>
 </html>
