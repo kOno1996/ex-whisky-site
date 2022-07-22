@@ -24,17 +24,24 @@
   	
   	<p class="featured-ranking">👑ウイスキー注目ランキング</p>
   	
-  	<table  style="margin-left:700px;">
+  	<table  style="margin-left:650px; margin-top:-150px;" >
   		<div th:each="whisky,status: ${whiskyList}">
   			<div th:if="${status.index % 3 == 0}"><tr></div>
   			<th>
-  				<span th:text="${whisky.name}"></span>
-  				<img
-                      th:src="@{/img/}  + ${whisky.id} + .jpg"
-                      class="img-responsive img-rounded item-img-center"
-                      width="200"
-                      height="600">
-                    
+  				<br>
+  				<span th:text="${status.count} + 位"></span><br> 
+  				<a th:href="@{#}">
+  					<img
+                      th:src="@{/img/}  + ${whisky.id} + .jpg"               
+                      width="150"
+                      height="150">
+  				</a>
+  				<br>
+  				<a th:href="@{#}">
+                	<span class="whisky-text" th:text="${whisky.brand} + ',' + ${whisky.maturityYears} + 年"></span><br>  
+                	<span class="whisky-text" th:text="${whisky.price} + 円"></span> 
+  				</a>
+  				<br> 
   			</th>
   			<div th:if="${status.index % 3 == 2}"></tr></div>
   		</div>

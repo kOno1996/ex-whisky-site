@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.Whisky;
+import com.example.demo.service.MWhiskyService;
 import com.example.demo.service.WhiskyService;
 
 @Controller
@@ -15,6 +16,9 @@ import com.example.demo.service.WhiskyService;
 public class WhiskyController {
 	@Autowired
 	private WhiskyService whiskyService;
+	
+	@Autowired
+	private MWhiskyService mWhiskyService;
 	
 	@RequestMapping("")
 	public String index(Model model) {

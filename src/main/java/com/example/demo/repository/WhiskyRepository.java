@@ -18,21 +18,21 @@ public class WhiskyRepository {
 	private static final RowMapper<Whisky> WHISKY_ROW_MAPPER = (rs, i)->{
 		Whisky whisky = new Whisky();
 		whisky.setId(rs.getInt("id"));
-		whisky.setName(rs.getString("name"));
+		//whisky.setName(rs.getString("name"));
 		whisky.setBrand(rs.getString("brand"));
-		whisky.setProductingArea(rs.getString("producting_area"));
-		whisky.setClassification(rs.getString("classification"));
+		//whisky.setProductingArea(rs.getString("producting_area"));
+		//whisky.setClassification(rs.getString("classification"));
 		whisky.setPrice(rs.getInt("price"));
-		whisky.setAlcoholContent(rs.getInt("alcohol_content"));
-		whisky.setManufacturer(rs.getString("manufacturer"));
+		//whisky.setAlcoholContent(rs.getInt("alcohol_content"));
+		//whisky.setManufacturer(rs.getString("manufacturer"));
 		whisky.setMaturityYears(rs.getInt("maturity_years"));
-		whisky.setCapacity(rs.getInt("capacity"));
+		//whisky.setCapacity(rs.getInt("capacity"));
 		return whisky;
 	};
 	
 	public List<Whisky> whiskyList(){
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM whisky");
+		sql.append("SELECT id, brand, price, maturity_years FROM whisky");
 		return template.query(sql.toString(), WHISKY_ROW_MAPPER);
 	}
 }
