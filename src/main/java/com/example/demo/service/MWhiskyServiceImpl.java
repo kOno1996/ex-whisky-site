@@ -12,7 +12,7 @@ public class MWhiskyServiceImpl implements MWhiskyService{
 	private WhiskyMapper mapper;
 	
 	@Override
-	public MWhisky getWhisky() {
-		return mapper.findOne();
+	public MWhisky getWhisky(Integer id) {
+		return mapper.findOne(id);
 	}
 }

@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//cssも含めてユーザ認証済みであることが条件となっているのでログイペ―ジが表示されたときにcssが適応されない問題がでる：antMatchersでcssは認証なしでも表示できるよう許可している
 		.antMatchers("/mypage/**").permitAll()
 		.antMatchers("/signin").permitAll()
-		.antMatchers("/whisky").permitAll()
+		.antMatchers("/whisky/**").permitAll()
 		//.antMatchers("/buy/mail").permitAll()
 		.and().authorizeRequests().antMatchers("/buy/**").hasRole("USER")
 		.and().authorizeRequests().antMatchers("/edit/**").hasRole("ADMIN")

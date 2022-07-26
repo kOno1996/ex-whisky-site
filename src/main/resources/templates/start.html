@@ -30,7 +30,7 @@
   			<th>
   				<br>
   				<span th:text="${status.count} + 位"></span><br> 
-  				<a th:href="@{#}">
+  				<a th:href="@{'/whisky/detail/' + ${whisky.id}}">
   					<img
                       th:src="@{/img/}  + ${whisky.id} + .jpg"               
                       width="150"

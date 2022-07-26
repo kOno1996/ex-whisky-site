@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.domain.MWhisky;
 import com.example.demo.domain.Whisky;
 import com.example.demo.service.MWhiskyService;
 import com.example.demo.service.WhiskyService;
@@ -24,6 +27,13 @@ public class WhiskyController {
 	public String index(Model model) {
 		List<Whisky> whiskyList = whiskyService.whiskyList();
 		model.addAttribute("whiskyList", whiskyList);
+		return "start";
+	}
+	
+	@GetMapping("/detail/{id}")
+	public String getWhisky(@PathVariable("id") Integer id) {
+		MWhisky whisky = mWhiskyService.getWhisky(id);
+		System.out.println("\n\n\n\n\n\n\n\n\n" + whisky.getBrand());
 		return "start";
 	}
 	
