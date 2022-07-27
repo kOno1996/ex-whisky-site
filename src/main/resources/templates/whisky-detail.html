@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Whisky Lab</title>
+    <link rel="stylesheet" th:href="@{/css/whisky-detail.css}">
+  </head>
+  <body>
+  	<header>
+  		<h1 class="title">Whisky Lab</h1>
+  		<p class="title">ウイスキー比較、検索サイト</p>
+  	</header>
+  	<nav>
+  		<ul>
+  			<li><a href="#">はじめての方へ</a></li>
+  			<li><a href="#">コラム</a></li>
+  			<li><a href="#">ウイスキー一覧</a></li>
+  			<li><a href="#">ウイスキーを探す</a></li>
+  			<li><a href="#">アンケート・プレゼント</a></li>
+  		</ul>
+  	</nav>
+  	<a th:href="@{/mypage/profile}" class="register">無料会員登録</a><br>
+  	<a href="#" class="login">ログイン</a>
+  	
+  	<p class="whisky-name" th:text="${whisky.name} + ' ' + ${whisky.maturityYears} + '年 ' + ${whisky.capacity} + 'ml'">👑ウイスキー詳細情報</p>
+  	<img th:src="@{/img/} + ${whisky.id} + .jpg" class="whisky-image">
+  	<table style="margin-left:650px; margin-top:-100px;" border="1">
+  		<caption class="imformation-title">&nbsp;基本情報</caption>
+  		<tr>
+			<th align="left">銘柄</th>
+			<td><span th:text="${whisky.brand}"></span></td>
+			<th align="left">産地</th>
+			<td><span th:text="${whisky.productingArea}"></span></td>
+  		</tr>
+  		<tr>
+  			<th align="left">分類</th>
+  			<td><span th:text="${whisky.classification}"></span></td> 	
+  			<th align="left">販売価格</th>
+  			<td><span th:text="${whisky.price} + 円"></span></td>
+  		</tr>
+  		<tr>
+  			<th align="left">度数</th>
+  			<td><span th:text="${whisky.alcoholContent} + 度"></span></td>	
+  			<th align="left">取り扱い会社</th>
+  			<td><span th:text="${whisky.manufacturer}"></span></td>
+  		</tr>
+  		<tr>
+  			<th align="left">熟成年数</th>
+  			<td><span th:text="${whisky.maturityYears} + 年"></span></td>	
+  			<th align="left">容量</th>
+  			<td><span th:text="${whisky.capacity} + ml"></span></td>
+  		</tr>
+  	</table>
+  </body>
+</html>

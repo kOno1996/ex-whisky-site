@@ -31,10 +31,10 @@ public class WhiskyController {
 	}
 	
 	@GetMapping("/detail/{id}")
-	public String getWhisky(@PathVariable("id") Integer id) {
+	public String getWhisky(@PathVariable("id") Integer id, Model model) {
 		MWhisky whisky = mWhiskyService.getWhisky(id);
-		System.out.println("\n\n\n\n\n\n\n\n\n" + whisky.getBrand());
-		return "start";
+		model.addAttribute("whisky", whisky);
+		return "whisky-detail";
 	}
 	
 }
