@@ -1,7 +1,11 @@
 package com.example.demo.repository;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -30,8 +34,10 @@ public class WhiskyRepository {
 		return whisky;
 	};
 	
-	public List<Whisky> whiskyList(){
+	public List<Whisky> whiskyList() throws IOException{
 		StringBuilder sql = new StringBuilder();
+		Document doc = Jsoup.parse(new File("/jsoup.html"), "UTF-8");
+		System.out.println("\n\n\n\n\n\n\n\n" + doc.html());
 		sql.append("SELECT id, brand, price, maturity_years FROM whisky");
 		return template.query(sql.toString(), WHISKY_ROW_MAPPER);
 	}
