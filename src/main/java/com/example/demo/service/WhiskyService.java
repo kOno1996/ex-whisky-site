@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public class WhiskyService {
 	@Autowired
 	private WhiskyRepository whiskyRepository;
 	
-	public List<Whisky> whiskyList(){
+	public List<Whisky> whiskyList() throws IOException{
 		return whiskyRepository.whiskyList();
 	}
 }

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class WhiskyController {
 	private MWhiskyService mWhiskyService;
 	
 	@RequestMapping("")
-	public String index(Model model) {
+	public String index(Model model) throws IOException{
 		List<Whisky> whiskyList = whiskyService.whiskyList();
 		model.addAttribute("whiskyList", whiskyList);
 		return "start";
