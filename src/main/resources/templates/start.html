@@ -46,5 +46,51 @@
   			<div th:if="${status.index % 3 == 2}"></tr></div>
   		</div>
   	</table>
+  	
+  	<div class="bar_title">&nbsp;フレーバー</div>
+  	<a href="javascript:void(0)" onclick="show('ウッディ');" class="bar">&nbsp;ウッディ</a>
+	<div id="layer_ウッディ" class="close">
+		バニラ<br>
+		はちみつ<br>
+		<a th:href="@{/whisky}" th:text="キャラメル"></a><br>
+		ココナッツ<br>
+		<a th:href="@{/whisky}" th:text="アーモンド"></a>
+	</div>
+	<br>
+	<div class="bar_title">&nbsp;銘柄</div>
+	<a href="javascript:void(0)"  onclick="show('あ');" class="bar">&nbsp;あ～か</a>	
+	<div id="layer_あ" class="close">
+		あ～か<br>
+		さ～た<br>
+		な～は<br>
+		ま～わ<br>
+		<a th:href="@{/whisky}" th:text="アーモンド"></a>
+	</div>
+	<a href="javascript:void(0)" onclick="show('さ');" class="bar">&nbsp;さ～た</a>	
+	<div id="layer_さ" class="close">
+		あ～か<br>
+		さ～た<br>
+		な～は<br>
+		ま～わ<br>
+		<a th:href="@{/whisky}" th:text="アーモンド"></a>
+	</div>
+	<br>
+	<div class="bar_title">&nbsp;飲み方</div>
+	<a th:href="@{whisky/ways/highball}" id="category_折りたたみA" onclick="show('飲み方');" class="bar">&nbsp;ハイボール</a>
+	<a href="javascript:void(0)" id="category_折りたたみA" onclick="show('飲み方');" class="bar">&nbsp;水割り</a>
+	<a href="javascript:void(0)" id="category_折りたたみA" onclick="show('飲み方');" class="bar">&nbsp;ストレート</a>
+	<a href="javascript:void(0)" id="category_折りたたみA" onclick="show('飲み方');" class="bar">&nbsp;ロック</a>
+  	<script>
+  		function show(inputData){
+    		let objID=document.getElementById( "layer_" + inputData );
+    		if(objID.className=='close') {
+        		objID.style.display='block';
+        		objID.className='open';
+    		}else{
+        		objID.style.display='none';
+        		objID.className='close';
+    		}
+		}
+  	</script>
   </body>
 </html>

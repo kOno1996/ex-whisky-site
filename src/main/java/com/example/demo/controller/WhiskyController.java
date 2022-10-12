@@ -37,4 +37,8 @@ public class WhiskyController {
 		return "whisky-detail";
 	}
 	
+	@RequestMapping("/ways/highball")
+	public String highball() {
+		return "whisky-highball";
+	}
 }

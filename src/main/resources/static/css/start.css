@@ -70,3 +70,52 @@ a{
 .whisky-text{
 	font-size: 12px;
 }
+
+.bar_title{
+	display: block;	
+	color:white;
+	width: 210px;
+	
+	position:relative;
+	bottom:390px;
+	left:280px;
+	background-color: black;
+}
+
+.bar{
+	display: block;	
+	width: 210px;
+	height: 40px;
+	position:relative;
+	bottom:390px;
+	left:280px;
+	background-color: #C0C0C0;
+}
+
+#layer_ウッディ{
+	display: none;
+	position:relative;
+	bottom:390px;
+	left:300px;
+}
+
+#layer_あ{
+	display: none;
+	position:relative;
+	bottom:390px;
+	left:300px;
+}
+
+#layer_さ{
+	display: none;
+	position:relative;
+	bottom:390px;
+	left:300px;
+}
+
+#layer_飲み方{
+	display: none;
+	position:relative;
+	bottom:390px;
+	left:300px;
+}
