@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.jsoup.Jsoup;
@@ -46,23 +47,33 @@ public class WhiskyRepository {
 		// HTMLファイルを読み込む
 		InputStream is = new ClassPathResource("static/css/jsoup.html").getInputStream();
 		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+		String line;
+		String lines = "";
+		List<Whisky> names = new ArrayList<Whisky>();
 		
-	            String line;
 
-	            // 1行ずつファイルを読み込む
-	            while ((line = br.readLine()) != null) {
-	                System.out.println(line);
-	            }
-		Document doc = Jsoup.parse(br.toString(), "UTF-8");
-		System.out.println("\n\n\n\n\n\n\n\n" + doc.html());
+		// 1行ずつファイルを読み込む
 
-		//aタグ要素のテキストを取り出す
+		while ((line = br.readLine()) != null) {
+			lines += line;
+		}
+		
+		
+		Document doc = Jsoup.parse(lines, "UTF-8");
+		//System.out.println("\n\n\n\n\n\n\n\n" + doc);
+
+		// aタグ要素のテキストを取り出す
 		Elements elements = doc.select("a");
 		for (Element element : elements) {
-			System.out.println(element.text());
+			Whisky whisky = new Whisky();
+			whisky.setName(element.text());
+			names.add(whisky);
 		}
 
 		sql.append("SELECT id, brand, price, maturity_years FROM whisky");
+		
 		return template.query(sql.toString(), WHISKY_ROW_MAPPER);
+		//return names;
 	}
 }

@@ -27,6 +27,7 @@ public class WhiskyController {
 	@RequestMapping("")
 	public String index(Model model) throws IOException{
 		List<Whisky> whiskyList = whiskyService.whiskyList();
+		//System.out.println("\n\n\n\n\n\n\n\n\n\n" + whiskyList.get(1).getName());
 		model.addAttribute("whiskyList", whiskyList);
 		return "start";
 	}
